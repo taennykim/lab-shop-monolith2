@@ -12,22 +12,11 @@ import java.util.Date;
 @Data
 
 public class Inventory  {
-
-
     
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    
-    
-    
-    
-    
+ 
     private Long id;
-    
-    
-    
-    
-    
     private Long stock;
 
     @PostPersist
@@ -41,9 +30,8 @@ public class Inventory  {
 
 
 
-    public void decreaseStock(DecreaseStockCommand decreaseStockCommand){
+    public void decreaseStock(DecreaseStockCommand decreaseStockCommand) {
+        setStock(getStock() - decreaseStockCommand.getQty().longValue());
     }
-
-
 
 }

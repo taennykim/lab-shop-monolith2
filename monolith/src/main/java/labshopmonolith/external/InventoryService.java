@@ -9,8 +9,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.Date;
 
 
-@FeignClient(name = "Inventory", url = "${api.url.Inventory}")
+@FeignClient(name = "inventory", url = "${api.url.inventory}")
 public interface InventoryService {
-    @RequestMapping(method= RequestMethod.PUT, path="/inventories/{id}/decreasestock")
-    public void decreaseStock(@PathVariable("id") Long id, @RequestBody DecreaseStockCommand decreaseStockCommand );
+    @RequestMapping(
+        method = RequestMethod.PUT,
+        path = "/inventories/{id}/decreasestock"
+    )
+    public void decreaseStock(
+        @PathVariable("id") Long id,
+        @RequestBody DecreaseStockCommand decreaseStockCommand
+    );
+
 }
